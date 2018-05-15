@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/cconstable/rupac.svg?branch=master)](https://travis-ci.org/cconstable/rupac)
+[![Coverage Status](https://coveralls.io/repos/github/cconstable/rupac/badge.svg)](https://coveralls.io/github/cconstable/rupac)
 
 # Rupac
 
