@@ -2,6 +2,9 @@ require 'bundler/setup'
 require 'simplecov'
 SimpleCov.start { add_filter "/spec/" }
 
+require 'coveralls'
+Coveralls.wear!
+
 require 'rupac'
 $LOAD_PATH << File.join(File.dirname(__FILE__), '..', 'lib')
 

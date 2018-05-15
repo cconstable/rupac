@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cconstable/rupac.svg?branch=master)](https://travis-ci.org/cconstable/rupac)
+
 # Rupac
 
 A monadic parser combinator library for Ruby capable of parsing complex recursive grammars.
@@ -17,17 +19,8 @@ puts grammar.parse("((1,2)")    # => fail
 
 ## Installation
 
-Gemfile:
+TODO
 
-```ruby
-gem 'rupac'
-```
-
-Locally:
-
-```
-$ gem install rupac
-```
 ## Usage
 
 A `Grammar` defines something you want to parse. Grammars are constructed by creating one or more rules. The "root" rule for the grammar is returned as the last item in the block. The root rule should contain all the other rules.
