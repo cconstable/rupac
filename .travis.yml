@@ -2,6 +2,5 @@ language: ruby
 cache:
   bundler: true
 rvm:
-  - 2.0.0-p647
   - 2.3.4
   - 2.4.1
