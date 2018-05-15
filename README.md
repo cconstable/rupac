@@ -1,3 +1,4 @@
+[![GitHub release](https://img.shields.io/github/release/cconstable/rupac.svg)](https://github.com/cconstable/rupac/releases/latest)
 [![Build Status](https://travis-ci.org/cconstable/rupac.svg?branch=master)](https://travis-ci.org/cconstable/rupac)
 [![Coverage Status](https://coveralls.io/repos/github/cconstable/rupac/badge.svg)](https://coveralls.io/github/cconstable/rupac)
 
@@ -22,6 +23,10 @@ puts grammar.parse("((1,2)")    # => fail
 
 TODO
 
+## Why?
+
+Monadic parser combinators allow us to generate lexers (something that tokenizes input) and parsers (something that transforms input into something meaningful) by describing grammars in a way that is structurally similar to the [BNF](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form) form of the grammars themselves. Practically, this means we can write a [JSON parser in only a few lines of code](https://github.com/cconstable/rupac/blob/master/examples/json.rb) that is easy to understand and maintain.
+
 ## Usage
 
 A `Grammar` defines something you want to parse. Grammars are constructed by creating one or more rules. The "root" rule for the grammar is returned as the last item in the block. The root rule should contain all the other rules.
@@ -43,7 +48,7 @@ whitespace    # matches whitespace
 ...
 ```
 
-Parsers can be combined using *combinators* to form new parsers. By combing the base parsers you can create the building blocks for parsing more complex strings.
+Parsers can be combined using *combinators* to form new parsers. By combining the base parsers you can create the building blocks for parsing more complex strings.
 
 ```ruby
 match('hello') >> match('!')   # matches "hello" and then "!"
@@ -109,7 +114,15 @@ puts r.residual # => 321
 
 ## Examples
 
-See `/examples`.
+See `/examples`:
+
+- [applicative](https://github.com/cconstable/rupac/blob/master/examples/applicative.rb)
+- [expressions](https://github.com/cconstable/rupac/blob/master/examples/expressions.rb)
+- [functor](https://github.com/cconstable/rupac/blob/master/examples/functor.rb)
+- [json](https://github.com/cconstable/rupac/blob/master/examples/json.rb)
+- [monad](https://github.com/cconstable/rupac/blob/master/examples/monad.rb)
+- [recursive_grammar](https://github.com/cconstable/rupac/blob/master/examples/recursive_grammar.rb)
+- [yaml](https://github.com/cconstable/rupac/blob/master/examples/yaml.rb)
 
 ## Development
 
