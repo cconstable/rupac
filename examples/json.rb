@@ -3,7 +3,7 @@
 require 'bundler/setup'
 require 'rupac'
 
-# The full JSON grammar can be expressed 11 rules that reflect the natural
+# The JSON grammar can be expressed 11 rules that reflect the natural
 # structure of the specification:
 
 grammar = Grammar.new do
@@ -17,10 +17,20 @@ grammar = Grammar.new do
   rule(:hash)           { (whitespace('{') < rule(:hash_member)) >> whitespace('}') }
   rule(:array_element)  { rule(:value) < (whitespace(',') >> rule(:array_element)) }
   rule(:array)          { (whitespace('[') < rule(:array_element)) >> whitespace(']') }
-  rule(:json)           { rule(:hash) | rule(:array)}
+  rule(:json)           { rule(:hash) | rule(:array) }
 
   rule(:json)
 end
+
+puts grammar.to_s
+
+
+
+
+
+
+
+
 
 # At this point we have a grammar that can be used to validate JSON. However,
 # the parser will simply return the raw ParserResult. If we want the parser to
@@ -28,9 +38,9 @@ end
 # processing rules:
 
 grammar.process_rules do
-  process(:true)            { |v| true }
-  process(:false)           { |v| false }
-  process(:null)            { |v| "nil" }
+  process(:true)            { |_| true }
+  process(:false)           { |_| false }
+  process(:null)            { |_| "nil" }
   process(:key)             { |v| v.to_sym }
   process(:pair)            { |v| {v[0][0] => v[1]} }
   process(:hash_member)     { |v| v.flatten.reject(&:nil?).reject { |v| v == "," }.reduce({}, &:merge) }
