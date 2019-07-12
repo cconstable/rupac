@@ -102,6 +102,7 @@ puts r.residual # => 321
 - `parser1 > parser2`: optionally tries parser1 and always runs parser2.
 - `parser1 < parser2`: always runs parser1 and optionally tries parser2.
 - `parser1 >> parser2`: runs parser1 and then parser2.
+- `skip_to(parser)`: keeps consuming input until parser succeeds.
 
 ### Utility
 
