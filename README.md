@@ -4,7 +4,7 @@
 
 # Rupac
 
-A monadic parser combinator library for Ruby capable of parsing complex recursive grammars.
+A parser combinator library for Ruby capable of parsing complex recursive grammars.
 
 ```ruby
 # A simple recursive grammar for tuples
